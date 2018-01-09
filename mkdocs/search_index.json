@@ -47,7 +47,7 @@
         },
         {
             "location": "/hbind_tools/",
-            "text": "Hbind Tools\n\n\nProtein Recognition Index (PRI)\n\n\nSoftware for assessing the native-likeness of designed or predicted protein-ligand interfaces, which can be used to guide protein mutagenesis and ligand design.\n\n\n\n\n[Link]\n\n\n\n\nHbind Interaction Viz\n\n\n\n\nA program for creating PyMOL H-bond interaction views from Hbind tables.\n\n\n\n\n[Link]",
+            "text": "Hbind Tools\n\n\nProtein Recognition Index (PRI)\n\n\nSoftware for assessing the native-likeness of designed or predicted protein-ligand interfaces, which can be used to guide protein mutagenesis and ligand design.\n\n\n\n\nhttps://psa-lab.github.io/protein-recognition-index/\n\n\n\n\nHbind Interaction Viz\n\n\nA program for creating PyMOL H-bond interaction views from Hbind tables.\n\n\n\n\n[http://psa-lab.github.io/HbindViz](http://psa-lab.github.io/HbindViz",
             "title": "Hbind Tools"
         },
         {
@@ -57,12 +57,12 @@
         },
         {
             "location": "/hbind_tools/#protein-recognition-index-pri",
-            "text": "Software for assessing the native-likeness of designed or predicted protein-ligand interfaces, which can be used to guide protein mutagenesis and ligand design.   [Link]",
+            "text": "Software for assessing the native-likeness of designed or predicted protein-ligand interfaces, which can be used to guide protein mutagenesis and ligand design.   https://psa-lab.github.io/protein-recognition-index/",
             "title": "Protein Recognition Index (PRI)"
         },
         {
             "location": "/hbind_tools/#hbind-interaction-viz",
-            "text": "A program for creating PyMOL H-bond interaction views from Hbind tables.   [Link]",
+            "text": "A program for creating PyMOL H-bond interaction views from Hbind tables.   [http://psa-lab.github.io/HbindViz](http://psa-lab.github.io/HbindViz",
             "title": "Hbind Interaction Viz"
         },
         {
