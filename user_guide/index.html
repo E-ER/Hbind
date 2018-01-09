@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Sebastian Raschka">
+  <link rel="shortcut icon" href="../favicon.ico">
+  
+  <title>User Guide - Hbind</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "User Guide";
+    var mkdocs_page_input_path = "user_guide.md";
+    var mkdocs_page_url = "/user_guide/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hbind</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">User Guide</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#user-guide">User Guide</a></li>
+    
+
+    <li class="toctree-l2"><a href="#hydrogen-bond-rules">Hydrogen bond rules</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#hydrogen-bond-criteria">Hydrogen bond criteria:</a></li>
+        
+            <li><a class="toctree-l3" href="#criteria-for-metal-interactions">Criteria for metal interactions:</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hbind_tools/">Hbind Tools</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">About</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../contact/">Contact</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../changelog/">Release Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../license/">License</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cite/">Citing Hbind</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hbind</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>User Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/psa-lab/hbind"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="user-guide">User Guide</h2>
+<p>To execute Hbind, please navigate to its main directory from where you installed it and run the following command to identify the hydrogen bonds in a protein ligand interface:</p>
+<pre><code>./bin/hbind -p ./example_files/1KPF.pdb \
+-l ./example_files/1KPF_AMP.mol2
+</code></pre>
+<p>Here, 1KPF.pdb is an excerpt from the PDB structure <a href="https://www.rcsb.org/pdb/explore.do?structureId=1kpf">1KPF</a> (PKCI-substrate analog) with its ligand <code>1KPF_AMP.mol2</code> (adenosine monophsophate). The structures are provided in Hbind's subdirectory "<a href="https://github.com/rasbt/Hbind/tree/master/example_files">example_files/</a>".</p>
+<p><strong><em>Before you run Hbind, please make sure that you provide the protein structure in PDB format and the ligand structure in MOL2 format, and please ensure that the ligand's protonation state (hydrogen assignment) is correct.</em></strong></p>
+<p>To protonate a ligand, tools such as <a href="https://docs.eyesopen.com/quacpac/molchargeusage.html">OpenEye MolCharge</a> can be used. However, it is recommended to protonate a ligand in presence of its protein environment, for example, by using tools such as <a href="http://swift.cmbi.ru.nl/whatif/">What If</a> or <a href="http://www.yasara.org/features.htm">Yasara OptHyd</a>.</p>
+<p>After running the command from the beginning of this section, the following output should be displayed:</p>
+<pre><code>HBIND Version: 1.0.0
+
+Documentation: http://psa-lab.github.io/hbind
+Raschka, Wolf, Bemister-Buffington, Kuhn (2018)
+Protein Structure and Analysis Lab, MSU (http://kuhnlab.bmb.msu.edu)
+
+Ligand file: /Users/sebastian/code/hbind/example_files/1KPF_AMP.mol2
+Protein file: /Users/sebastian/code/hbind/example_files/1KPF.pdb
+
+++++++++++++++++++++++++++++++++ HBind Interaction Table ++++++++++++++++++++++++++++++++
+#            | Ligand Atom -- Protein  Atom | Bond   D-H-A  Ligand-Protein
+#            |  #  TYPE    -- RES  CH_ID  RES_NO  A_TYPE | DIST.  ANGLE  INTERACTION
+| hbond     1   2  O.2     -- ASN  A       99     ND2      2.911  174.0  Acceptor - Donor
+| hbond     2   3  O.3     -- SER  A      107     N        2.802  166.8  Acceptor - Donor
+| hbond     3   3  O.3     -- VAL  A      108     N        3.031  178.8  Acceptor - Donor
+| hbond     4   4  O.3     -- HIS  A      112     NE2      2.593  163.1  Acceptor - Donor
+| hbond     5   4  O.3     -- HIS  A      114     NE2      2.581  140.4  Acceptor - Donor
+| hbond     6  10  O.3     -- ASP  A       43     OD2      2.714  167.1  Donor - Acceptor
+| hbond     7  12  O.3     -- ASP  A       43     OD1      2.607  154.1  Donor - Acceptor
+| hbond     8  22  N.ar    -- ILE  A       44     N        3.156  154.9  Acceptor - Donor
+</code></pre>
+
+<p>To include salt bridges in the listing, you can use the <code>-s</code> option as shown below:</p>
+<pre><code>./bin/hbind -p ./example_files/1KPF.pdb \
+-l ./example_files/1KPF_AMP.mol2 -s
+</code></pre>
+<pre><code>HBIND Version: 1.0.0
+
+Documentation: http://psa-lab.github.io/hbind
+Raschka, Wolf, Bemister-Buffington, Kuhn (2018)
+Protein Structure and Analysis Lab, MSU (http://kuhnlab.bmb.msu.edu)
+
+Ligand file: /Users/sebastian/code/hbind/example_files/1KPF_AMP.mol2
+Protein file: /Users/sebastian/code/hbind/example_files/1KPF.pdb
+
+++++++++++++++++++++++++++++++++ HBind Interaction Table ++++++++++++++++++++++++++++++++
+#            | Ligand Atom -- Protein  Atom | Bond   D-H-A  Ligand-Protein
+#            |  #  TYPE    -- RES  CH_ID  RES_NO  A_TYPE | DIST.  ANGLE  INTERACTION
+| hbond     1   2  O.2     -- ASN  A       99     ND2      2.911  174.0  Acceptor - Donor
+| hbond     2   3  O.3     -- SER  A      107     N        2.802  166.8  Acceptor - Donor
+| hbond     3   3  O.3     -- VAL  A      108     N        3.031  178.8  Acceptor - Donor
+| hbond     4   4  O.3     -- HIS  A      112     NE2      2.593  163.1  Acceptor - Donor
+| hbond     5   4  O.3     -- HIS  A      114     NE2      2.581  140.4  Acceptor - Donor
+| hbond     6  10  O.3     -- ASP  A       43     OD2      2.714  167.1  Donor - Acceptor
+| hbond     7  12  O.3     -- ASP  A       43     OD1      2.607  154.1  Donor - Acceptor
+| hbond     8  22  N.ar    -- ILE  A       44     N        3.156  154.9  Acceptor - Donor
+| saltb     1   2  O.2     -- HIS  A      114     NE2      4.245  N/A    Acceptor - Donor
+| saltb     2   3  O.3     -- HIS  A      112     NE2      3.382  N/A    Acceptor - Donor
+| saltb     3   4  O.3     -- HIS  A      114     ND1      4.462  N/A    Acceptor - Donor
+| saltb     4  10  O.3     -- ASP  A       43     OD1      3.395  N/A    Donor - Acceptor
+| saltb     5  12  O.3     -- ASP  A       43     OD2      3.607  N/A    Donor - Acceptor
+</code></pre>
+
+<p>For additional information, i.e. a summary talbe that includes the number of hydrophobic contacts or <a href="http://www.kuhnlab.bmb.msu.edu/software/slide/">SLIDE</a> docking scores, provide the <code>-t</code> flag:</p>
+<pre><code>./bin/hbind -p ./example_files/1KPF.pdb \
+-l ./example_files/1KPF_AMP.mol2 -s -t
+</code></pre>
+<pre><code>HBIND Version: 1.0.0
+
+Documentation: http://psa-lab.github.io/hbind
+Raschka, Wolf, Bemister-Buffington, Kuhn (2018)
+Protein Structure and Analysis Lab, MSU (http://kuhnlab.bmb.msu.edu)
+
+Ligand file: /Users/sebastian/code/hbind/example_files/1KPF_AMP.mol2
+Protein file: /Users/sebastian/code/hbind/example_files/1KPF.pdb
+
++++++++++++++++++ Summary +++++++++++++++++++
+| Protein-Ligand Hydrophobic Contacts :    39
+| Protein-Ligand H-bonds              :     8
+| Protein-Ligand Salt-bridges         :     5
+| Metal-Ligand Bonds                  :     0
+| SLIDE OrientScore                   : -8.787
+| SLIDE AffiScore (heavy atoms)       : -0.102
+| SLIDE AffiScore                     : -7.557
+
+++++++++++++++++++++++++++++++++ HBind Interaction Table ++++++++++++++++++++++++++++++++
+#            | Ligand Atom -- Protein  Atom | Bond   D-H-A  Ligand-Protein
+#            |  #  TYPE    -- RES  CH_ID  RES_NO  A_TYPE | DIST.  ANGLE  INTERACTION
+| hbond     1   2  O.2     -- ASN  A       99     ND2      2.911  174.0  Acceptor - Donor
+| hbond     2   3  O.3     -- SER  A      107     N        2.802  166.8  Acceptor - Donor
+| hbond     3   3  O.3     -- VAL  A      108     N        3.031  178.8  Acceptor - Donor
+| hbond     4   4  O.3     -- HIS  A      112     NE2      2.593  163.1  Acceptor - Donor
+| hbond     5   4  O.3     -- HIS  A      114     NE2      2.581  140.4  Acceptor - Donor
+| hbond     6  10  O.3     -- ASP  A       43     OD2      2.714  167.1  Donor - Acceptor
+| hbond     7  12  O.3     -- ASP  A       43     OD1      2.607  154.1  Donor - Acceptor
+| hbond     8  22  N.ar    -- ILE  A       44     N        3.156  154.9  Acceptor - Donor
+| saltb     1   2  O.2     -- HIS  A      114     NE2      4.245  N/A    Acceptor - Donor
+| saltb     2   3  O.3     -- HIS  A      112     NE2      3.382  N/A    Acceptor - Donor
+| saltb     3   4  O.3     -- HIS  A      114     ND1      4.462  N/A    Acceptor - Donor
+| saltb     4  10  O.3     -- ASP  A       43     OD1      3.395  N/A    Donor - Acceptor
+| saltb     5  12  O.3     -- ASP  A       43     OD2      3.607  N/A    Donor - Acceptor
+</code></pre>
+
+<p><br>
+<br></p>
+<h2 id="hydrogen-bond-rules">Hydrogen bond rules</h2>
+<p>Hbind's rules for identifying hydrogen bonds protein-ligand interfaces are based on the criteria by Ippolito et al. [1] and McDonald and Thornton [2].</p>
+<h4 id="hydrogen-bond-criteria">Hydrogen bond criteria:</h4>
+<ul>
+<li>Hydrogen to acceptor distance: 1.5-2.5 Å</li>
+<li>Donor to acceptor distance: 2.4-3.5 Å</li>
+<li>Donor-H-acceptor angle (θ): 120-180°</li>
+<li>Pre-acceptor–acceptor–H angle (φ): 90-180°</li>
+</ul>
+<p>(Hydrogen bonds must meet all of these criteria.)</p>
+<h4 id="criteria-for-metal-interactions">Criteria for metal interactions:</h4>
+<ul>
+<li>Lone pair atom distance to K or Na: 2.0-2.9 Å</li>
+<li>Lone pair atom distance to Ca, Co, Cu, Fe, Mg, Mn, Ni, or Zn: 1.7-2.6 Å</li>
+</ul>
+<p>Additional command line options are available to list longer-range salt bridge interactions (up to 4.5 Å) and the number of hydrophobic contancts between protein and ligand atoms.</p>
+<p>[1] Ippolito, Joseph A, Richard S Alexander &amp; David W Christianson. 1990. Hydrogen bond stereo-chemistry in protein structure and function. <em>Journal of Molecular Biology</em> 215(3). 457–471. <br />
+[2] McDonald, Ian &amp; Janet M Thornton. 1994. Atlas of side-chain and main-chain hydrogen bonding. http://www.biochem.ucl.ac.uk/bsm/atlas: Biochemistry and Molecular Biology Department, University College London.</p>
+<p><br>
+<br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../hbind_tools/" class="btn btn-neutral float-right" title="Hbind Tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2018 Michigan State University. Developed in the <a href="http://www.kuhnlab.bmb.msu.edu">PSA Lab</a>.<br><em><a href="cite">Sebastian Raschka et al. 2018</a></em>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/psa-lab/hbind" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../hbind_tools/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      <script src="../mathjaxhelper.js"></script>
+
+</body>
+</html>
